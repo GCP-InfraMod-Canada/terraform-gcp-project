@@ -9,7 +9,7 @@ resource "random_integer" "id" {
 
 locals {
   project_name   = "${title(random_integer.id.keepers.app_name)} ${title(var.environment)}"
-  canonical_name = "${join("-", split(" ", lower(local.project_name)))}"
+  canonical_name = join("-", split(" ", lower(local.project_name)))
   project_id     = "${local.canonical_name}-${random_integer.id.result}"
 }
 
